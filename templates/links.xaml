@@ -1,0 +1,32 @@
+{% extends "base.xaml" %}
+
+{% block content %}
+
+<local:MyCard Margin="0,0,0,15">
+    <Border Padding="12" Background="{DynamicResource ColorBrush4}" CornerRadius="3"
+        BorderThickness="3,0,0,0" BorderBrush="{DynamicResource ColorBrush3}">
+        <StackPanel Orientation="Horizontal">
+            <Path VerticalAlignment="Center" Stretch="Uniform" Height="15" Width="15"
+                Margin="0,0,10,0" Fill="White" Data="{DynamicResource LogoGeometry}" />
+            <TextBlock Foreground="White" TextWrapping="Wrap" Text="感谢您订阅 Minecraft 芝士站"
+                FontWeight="Bold" />
+        </StackPanel>
+    </Border>
+</local:MyCard>
+
+{% for item in links %}
+<local:MyCard Title="{{ item }}">
+    <StackPanel Margin="25,40,23,15">
+        {%- for link in links[item] %}
+        <local:MyListItem
+            Title="{{ link.title }}"
+            Info="{{ link.info }}"
+            Type="Clickable"
+            EventType="打开网页"
+            EventData="{{ link.link }}" />
+        {%- endfor %}
+    </StackPanel>
+</local:MyCard>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,20 @@
+# 操作系统产生的文件
+Thumbs.db
+.DS_Store
+
+# Python 虚拟环境 VENV
+.venv/
+
+# IDE 或者 Python 产生的临时文件
+.vscode/
+.idea/
+__pycache__/
+
+# 数据
+/data/categories/
+/data/announcements.json
+/data/links.json
+/data/settings.json
+/data/sponsors.json
+/data/sponsors_cache.json
+/data/tags.json

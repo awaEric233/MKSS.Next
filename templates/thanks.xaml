@@ -1,0 +1,42 @@
+{% extends "base.xaml" %}
+
+{% block content %}
+
+<local:MyCard Margin="0,0,0,15">
+    <Border Padding="12" Background="{DynamicResource ColorBrush4}" CornerRadius="3"
+        BorderThickness="3,0,0,0" BorderBrush="{DynamicResource ColorBrush3}">
+        <StackPanel Orientation="Horizontal">
+            <Path VerticalAlignment="Center" Stretch="Uniform" Height="15" Width="15"
+                Margin="0,0,10,0" Fill="White" Data="{DynamicResource LogoGeometry}" />
+            <TextBlock Foreground="White" TextWrapping="Wrap" Text="感谢您支持 Minecraft 芝士站"
+                FontWeight="Bold" />
+        </StackPanel>
+    </Border>
+</local:MyCard>
+
+<local:MyCard Title="特别感谢" Margin="0,0,0,15">
+    <StackPanel Margin="25,40,23,15">
+        <local:MyListItem Title="Minecraft Wiki" Info="部分文章使我能够了解某些版本的特性。" />
+        <local:MyListItem Title="iconfont" Info="提供了主页内的图标。" />
+        <local:MyListItem Title="最亮的信标" Info="开源新闻主页，使我能够从主页中参考部分样式。" />
+        <local:MyListItem Title="MKSS 贡献者们" Info="为主页添砖加瓦，完善内容。" />
+    </StackPanel>
+</local:MyCard>
+
+<local:MyCard Title="赞助者" Margin="0,0,0,15">
+    <StackPanel Margin="25,40,23,15">
+        <TextBlock Text="感谢各位对 MKSS 的支持！" Margin="0,0,0,10" />
+        <local:MyButton Text="赞助作者"
+            Padding="30,10" ColorType="Highlight" HorizontalAlignment="Left" EventType="打开网页"
+            EventData="{{ sponsor_url }}" />
+        {%- for item in sponsors %}
+        <local:MyListItem
+            Logo="{{ item.avatar_url }}"
+            Title="{{ item.name or item.user_id }}"
+            Info="发电 {{ item.amount }} 元，谢谢您！"
+            Margin="0,10,0,0" />
+        {%- endfor %}
+    </StackPanel>
+</local:MyCard>
+
+{% endblock %}
