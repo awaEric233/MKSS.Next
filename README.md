@@ -23,7 +23,7 @@ Discover **Minecraft trivia** and more!
 2. Click "设置" on the top bar;
 3. Click "个性化" on the side bar;
 4. Click "联网更新" in the "主页" card;
-5. Input our URL: `https://mkss.services.awaeric.xyz` into the text box.
+5. Input our URL: `https://mkss-services.awaeric.xyz` into the text box.
 
 ## 💡 Submit your ideas
 

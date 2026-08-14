@@ -23,7 +23,7 @@
 2. 点击顶栏上的“设置”；
 3. 点击侧栏上的“个性化”；
 4. 点击“主页”卡片里的“联网更新”。
-5. 将我们的 URL `https://mkss.services.awaeric.xyz` 输入到文本框中。
+5. 将我们的 URL `https://mkss-services.awaeric.xyz` 输入到文本框中。
 
 ## 💡 投稿想法
 
