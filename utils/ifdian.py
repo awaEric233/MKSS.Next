@@ -56,6 +56,7 @@ def query_order(user_id: str, token: str, page: int = 1) -> list[IfdianOrder]:
             "ts": ts,
             "sign": sign,
         },
+        timeout=10,
     )
     return IfdianResponse.model_validate_json(response.text).data.list
 
@@ -78,6 +79,7 @@ def query_sponsor(user_id: str, token: str, page: int = 1, per_page: int = 100) 
             "ts": ts,
             "sign": sign,
         },
+        timeout=10,
     )
     return IfdianSponsorResponse.model_validate_json(response.text)
 
