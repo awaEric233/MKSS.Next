@@ -6,7 +6,7 @@ Plain Craft Launcher 2 - Minecraft 芝士站主页 ( Minecraft Knowledge Sharing
 """
 
 from .builder import (
-    build_page,
+    build_page_pcl2,
     read_announcement_file,
     read_links_file,
     read_source_file,

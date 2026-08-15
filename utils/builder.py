@@ -27,26 +27,29 @@ def render_template(template_name: str, request: Request, **kwargs) -> Response:
     return TEMPLATES.TemplateResponse(request, template_name, {"request": request, **kwargs})
 
 
-def build_page(request: Request, settings: dict) -> Response:
+def build_page_pcl2(request: Request, settings: dict) -> Response:
     """读取所有分类与公告，构建主页 XAML。"""
-    base = abspath(CATEGORIES_DIR)
-    paths = readable_source_files(listdir(base))
-    page = MainPage()
-    tags = read_tags_file()
-    for item in paths:
-        info = read_source_file(f"{base}/{item}")
-        for source in info.sources:
-            # 将源中的文本转义为 XAML 安全字符串，防止破坏页面结构
-            source.title = xaml_safe(source.title)
-            tag = ""
-            if source.author in tags:
-                # 贡献者标签渲染为 "<标签> " 前缀
-                tag = "".join(f"<{tag_name}> " for tag_name in tags[source.author])
-            source.author = xaml_safe(f"贡献者：{tag}{source.author}")
-            source.content = xaml_safe(source.content)
-        page.categories.append(info)
-    page.announcements = read_announcement_file()
-    return render_template("index.xaml", request, page=page, settings=settings)
+    try:
+        base = abspath(CATEGORIES_DIR)
+        paths = readable_source_files(listdir(base))
+        page = MainPage()
+        tags = read_tags_file()
+        for item in paths:
+            info = read_source_file(f"{base}/{item}")
+            for source in info.sources:
+                # 将源中的文本转义为 XAML 安全字符串，防止破坏页面结构
+                source.title = xaml_safe(source.title)
+                tag = ""
+                if source.author in tags:
+                    # 贡献者标签渲染为 "<标签> " 前缀
+                    tag = "".join(f"<{tag_name}> " for tag_name in tags[source.author])
+                source.author = xaml_safe(f"贡献者：{tag}{source.author}")
+                source.content = xaml_safe(source.content)
+            page.categories.append(info)
+        page.announcements = read_announcement_file()
+        return render_template("index.xaml", request, page=page, settings=settings)
+    except Exception as ex:
+        return render_template("fallback.xaml", request, exception=ex)
 
 
 def readable_source_files(files: list[str]) -> list[str]:

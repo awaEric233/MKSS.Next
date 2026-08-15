@@ -1,0 +1,44 @@
+{% extends "base.xaml" %}
+
+{% block content %}
+
+<local:MyCard Margin="0,0,0,15">
+    <Border Padding="12" Background="{DynamicResource ColorBrush4}" CornerRadius="3"
+        BorderThickness="3,0,0,0" BorderBrush="{DynamicResource ColorBrush3}">
+        <StackPanel Orientation="Horizontal">
+            <Path VerticalAlignment="Center" Stretch="Uniform" Height="15" Width="15"
+                Margin="0,0,10,0" Fill="White" Data="{DynamicResource LogoGeometry}" />
+            <TextBlock Foreground="White" TextWrapping="Wrap" Text="Minecraft 芝士站炸了！"
+                FontWeight="Bold" />
+        </StackPanel>
+    </Border>
+</local:MyCard>
+
+<local:MyCard Title="发生了什么事？" Margin="0,0,0,15">
+    <StackPanel Margin="25,40,23,15">
+        <TextBlock Text="出现了一些问题，该主页无法正常服务。" />
+    </StackPanel>
+</local:MyCard>
+
+<local:MyCard Title="如果你是普通用户......" Margin="0,0,0,15" CanSwap="True">
+    <StackPanel Margin="25,40,23,15">
+        <TextBlock Text="请稍等一会，若问题依旧请反馈给维护者。" />
+    </StackPanel>
+</local:MyCard>
+
+<local:MyCard Title="如果你是维护者......" Margin="0,0,0,15" CanSwap="True">
+    <StackPanel Margin="25,40,23,15">
+        <TextBlock>
+            <Run>这是在渲染主页的过程中出现的问题。</Run>
+            <LineBreak />
+            <Run>请先去检查源文件正确无误，</Run>
+            <LineBreak />
+            <Run>若问题依旧请反馈给 MKSS.Next 开发者。</Run>
+            <LineBreak />
+            <LineBreak />
+            <Bold>详细的异常信息： <LineBreak />{{exception}}</Bold>
+        </TextBlock>
+    </StackPanel>
+</local:MyCard>
+
+{% endblock %}

@@ -24,7 +24,7 @@ from utils import (
     SUB_LINKS_FILE,
     SUB_THANKS_FILE,
     TAGS_FILE,
-    build_page,
+    build_page_pcl2,
     category_file,
     create_dir_if_not_exists,
     create_json_file_if_not_exists,
@@ -105,7 +105,7 @@ async def route_index(request: Request, user_agent: Annotated[str | None, Header
 
     # 判断 UA，是否为 PCL2（注意 UA 可能缺失，需要判空）
     if user_agent and user_agent.startswith("PCL2/"):
-        return build_page(request, settings)
+        return build_page_pcl2(request, settings)
     else:
         return meta
 
