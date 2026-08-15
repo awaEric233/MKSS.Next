@@ -16,10 +16,11 @@
 
 <local:MyCard Title="特别感谢" Margin="0,0,0,15">
     <StackPanel Margin="25,40,23,15">
-        <local:MyListItem Title="Minecraft Wiki" Info="部分文章使我能够了解某些版本的特性。" />
+        <local:MyListItem Title="MKSS 贡献者们" Info="为主页添砖加瓦，完善内容。" />
+        <local:MyListItem Title="Neclyon" Info="在主页投稿帖提出 “小知识主页” 想法，是主页的灵感。" />
+        <local:MyListItem Title="中文 Minecraft Wiki" Info="部分文章使我能够了解某些版本的特性。" />
         <local:MyListItem Title="iconfont" Info="提供了主页内的图标。" />
         <local:MyListItem Title="最亮的信标" Info="开源新闻主页，使我能够从主页中参考部分样式。" />
-        <local:MyListItem Title="MKSS 贡献者们" Info="为主页添砖加瓦，完善内容。" />
     </StackPanel>
 </local:MyCard>
 
